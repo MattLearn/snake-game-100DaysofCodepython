@@ -34,11 +34,17 @@ while game_active:
         scoreboard.score_increase()
 
     if snake.head.xcor() > BOUNDARY_BOX or snake.head.xcor() < -BOUNDARY_BOX or snake.head.ycor() > BOUNDARY_BOX or snake.head.ycor() < -BOUNDARY_BOX:
-        game_active = False
+#        game_active = False
+        scoreboard.reset()
+        snake.reset()
+
 
     for segment in snake.snake[1:]:
         if snake.head.distance(segment) < 10:
-            game_active = False
+ #           game_active = False
+            scoreboard.reset()
+            snake.reset()
+
 
 scoreboard.game_over()
 screen.exitonclick()
